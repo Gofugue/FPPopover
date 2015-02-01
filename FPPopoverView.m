@@ -507,6 +507,11 @@
 			contentRect.origin = CGPointMake(10, 30);
 			contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-40);
 		}
+        /// XXX: we only address FPPopoverNoArrow case, I think all direction above all have the same issue
+        if (!_border) {
+            contentRect.origin = CGPointMake(contentRect.origin.x, contentRect.origin.y - 20);
+            contentRect.size = CGSizeMake(contentRect.size.width, contentRect.size.height + 20);
+        }
     }
 
     _contentView.frame = contentRect;
